@@ -9,21 +9,28 @@ import {
   HeroActionList,
   HeroAction,
 } from "smooth-doc/components";
+import {Link} from "gatsby";
 import heroBackgroundImageURL from "../images/hero-background.png";
 
 <HeroSection>
   <Hero backgroundImageURL={heroBackgroundImageURL}>
     <HeroBody>
-      <HeroTitle>Your Smooth DOC setup is complete!</HeroTitle>
-      <HeroTeaser>Edit `pages/index.mdx` to personalize homepage.</HeroTeaser>
+      <HeroTitle>Welcome to Code Server Boilerplates docs!</HeroTitle>
+      <HeroTeaser>We'll start moving both our user and maintainer documentations from the starter-pack repo into here very soon.</HeroTeaser>
       <HeroActionList>
         <HeroAction>
           <Button
+            as={Link}
+            href="/maintainer-docs/"
+          >
+            Get started maintaining an deploy-code-server template
+          </Button>
+          <Button
             variant="neutral"
             forwardedAs="a"
-            href="/docs/"
+            href="/user-guide/"
           >
-            Browse Docs
+            Just regular user? Read the docs here.
           </Button>
         </HeroAction>
       </HeroActionList>
