@@ -13,6 +13,23 @@ module.exports = {
         githubDocRepositoryURL: "https://github.com/code-server-boilerplates/docs",
         baseDirectory: __dirname,
 
+        // navigation stuff
+        navItems: [
+          {
+            name: "User Guide",
+            url: "/user-guide/",
+          },
+          {
+            name: "Maintainer's Handbook"
+            url: "/maintainer-docs/"
+          }
+        ],
+        sections: 
+          "User Guide",
+          "For Maintainers",
+          "Reference",
+          "Documentation Contributors Zone"
+        ],
       },
     },
   ],
