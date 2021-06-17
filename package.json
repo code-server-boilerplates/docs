@@ -1,6 +1,6 @@
 {
-  "name": "smooth-doc-starter",
-  "version": "0.0.0",
+  "name": "@csb-toolkits/docs",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "develop": "gatsby develop",
