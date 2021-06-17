@@ -25,11 +25,11 @@ module.exports = {
           }
         ],
         sections: [
-          "Starter Pack"
+          "Starter Pack",
           "User's Manual",
           "For Maintainers",
           "Reference",
-          "Documentation Contributors Zone"
+          "Documentation Contributors Zone",
         ],
       },
     },
