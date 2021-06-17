@@ -20,12 +20,13 @@ module.exports = {
             url: "/user-guide/",
           },
           {
-            name: "Maintainer's Handbook"
-            url: "/maintainer-docs/"
+            name: "Maintainer's Handbook",
+            url: "/maintainer-docs/",
           }
         ],
-        sections: 
-          "User Guide",
+        sections: [
+          "Starter Pack"
+          "User's Manual",
           "For Maintainers",
           "Reference",
           "Documentation Contributors Zone"
