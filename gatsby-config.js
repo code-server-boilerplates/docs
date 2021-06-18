@@ -14,7 +14,7 @@ module.exports = {
         baseDirectory: __dirname,
 
         // navigation stuff
-        navItems: [{ name: "Get started", url: "/choose-your-path/"}],
+        navItems: [{ title: "Get started", url: "/choose-your-path/"}],
         sections: [ "Starter Pack", "User's Manual", "For Maintainers", "Reference", "Documentation Contributors Zone" ],
       },
     },
