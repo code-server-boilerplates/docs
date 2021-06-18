@@ -1,4 +1,11 @@
 module.exports = {
+  flags: {
+    // Only enable experimental flags at your own risk.
+    DEV_SSR: true,
+    PRESERVE_WEBPACK_CACHE: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    FAST_DEV: true,
+  },
   siteMetadata: {
     siteTitle: `Code Server Boilerplates Docs | The Pins Team`,
     defaultTitle: `Code Server Boilerplates Docs | The Pins Team`,
