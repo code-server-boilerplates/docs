@@ -1,6 +1,16 @@
 - label: 'Home'
   link: '/'
 
+- label: Maintainers' Handbook
+  items:
+    - label: Handbook Home
+      link: /maintainer-docs/
+
+- label: User Guide
+  items:
+    - label: User Guide Home
+      link: /user-guide/
+
 - label: Community
   items:
     - label: code-server Community at Slack
