@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          depth: 0
+          fetch-depth: 0
           token: ${{secrets.GH_SERVICE_ACCOUNT_API_KEY}}
       - uses: actions/setup-node@v2
         with:
@@ -25,12 +25,16 @@ jobs:
       - name: Setup Yarn Berry
         shell: bash
         run: |
+          git checkout update-lockfiles
           [ ! -d .yarn/versions ] && yarn set version berry || [ -d .yarn/versions ] && [[ $UPGRADE_LOCAL_YARNPKG_BINARY != "" ]] && yarn set version latest
       - name: Run install CI
         run: yarn install
+      - name: Attempt to upgrade dependencies
+        run: |
+          yarn up gatsby react react-dom smooth-doc || true
       - name: Stage changes and check status
         run: git add . && git status
       - name: Commit changes
         run: |
           git commit -m "Updated Yarn lockfiles and stuff" --signoff
-          git push origin HEAD:update-lockfiles
+          git push origin update-lockfiles

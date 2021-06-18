@@ -1,8 +1,8 @@
 version: "1"
 rules:
   - base: master
-    upstream: "code-server-boilerplates:master"
+    upstream: code-server-boilerplates:master
     mergeMethod: merge
-  - base: update-lockfiles
-    upstream: master
+  - base: master
+    upstream: update-lockfiles
     mergeMethod: merge
