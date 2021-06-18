@@ -1,3 +1,7 @@
+// remind me to change it to main as branch renames may happen
+// in case you're not on Verceljust prefix it when running npm scripts with VERCEL_GIT_COMMIT_REF=beta npm run <script-name>
+const gitBranch = process.env.VERCEL_GIT_COMMIT_REF || "master";
+
 module.exports = {
   flags: {
     // Only enable experimental flags at your own risk.
@@ -26,7 +30,8 @@ module.exports = {
         configPath: `src/config`,
         docsPath: `src/docs`,
         repositoryUrl: `https://github.com/code-server-boilerplates/docs`,
-        //baseDir: `.`,
+        baseDir: `/`,
+        branch: gitBranch,
       },
     },
   ],
