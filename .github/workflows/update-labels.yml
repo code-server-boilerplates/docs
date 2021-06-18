@@ -1,4 +1,4 @@
-name: github
+name: Issue Labels Manager
 
 on:
   push:
