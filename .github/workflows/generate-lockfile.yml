@@ -1,0 +1,32 @@
+name: Generate Yarn lockfile
+
+on:
+  workflow_dispatch:
+
+jobs:
+  lockfile-generator:
+    runs-on: ubutnu-latest
+    env:
+      RELEASES_GPG_PASSPHARSE: ${{ secrets.RELEASES_GPG_PASSPHARSE }}
+      RELEASES_GPG_KEY: ${{ secrets.RELEASES_GPG_KEY }}
+    steps:
+      - run: actions/checkout@v2
+        with:
+          depth: 0
+          token: ${{secrets.GH_SERVICE_ACCOUNT_API_KEY}}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Setup Git
+        run: curl -fsSL https://github.com/code-server-boilerplates/charts/raw/main/scripts/setup-ci | bash
+      - name: Install Yarn
+        run: npm i -g yarn
+      - name: Setup Yarn Berry
+        run: |
+          [ ! -d .yarn/versions ] && yarn set version berry || [ -d .yarn/versions ] && [ $UPGRADE_LOCAL_YARNPKG_BINARY != "" ] && yarn set version latest
+      - name: Run install CI
+        run: yarn install
+      - name: Commit changes
+        run: |
+          git commit -m "Updated Yarn lockfiles and stuff" --signoff
+          git push origin HEAD:update-lockfiles
