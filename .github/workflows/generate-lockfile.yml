@@ -10,7 +10,7 @@ jobs:
       RELEASES_GPG_PASSPHARSE: ${{ secrets.RELEASES_GPG_PASSPHARSE }}
       RELEASES_GPG_KEY: ${{ secrets.RELEASES_GPG_KEY }}
     steps:
-      - run: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           depth: 0
           token: ${{secrets.GH_SERVICE_ACCOUNT_API_KEY}}
