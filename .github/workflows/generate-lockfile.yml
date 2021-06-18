@@ -9,6 +9,7 @@ jobs:
     env:
       RELEASES_GPG_PASSPHARSE: ${{ secrets.RELEASES_GPG_PASSPHARSE }}
       RELEASES_GPG_KEY: ${{ secrets.RELEASES_GPG_KEY }}
+      UPGRADE_LOCAL_YARNPKG_BINARY: true
     steps:
       - uses: actions/checkout@v2
         with:
@@ -22,8 +23,9 @@ jobs:
       - name: Install Yarn
         run: npm i -g yarn
       - name: Setup Yarn Berry
+        shell: bash
         run: |
-          [ ! -d .yarn/versions ] && yarn set version berry || [ -d .yarn/versions ] && [ $UPGRADE_LOCAL_YARNPKG_BINARY != "" ] && yarn set version latest
+          [ ! -d .yarn/versions ] && yarn set version berry || [ -d .yarn/versions ] && [[ $UPGRADE_LOCAL_YARNPKG_BINARY != "" ]] && yarn set version latest
       - name: Run install CI
         run: yarn install
       - name: Stage changes and check status
