@@ -1,6 +1,6 @@
 # Code Server Boilerplate Docs
 
-[![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=csb-docs&style=flat-square)](https://csb-docs.community-lores.gq)
+![Build Status](https://build-status-ci-thepinsteam.vercel.app/api/code-server-boilerplates/docs?style=flat-square)
 [![GitHub](https://img.shields.io/github/license/code-server-boilerplates/docs?logo=github&style=flat-square)](/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues-raw/code-server-boilerplates/docs?logo=github&style=flat-square)](https://github.com/code-server-boilerplates/docs/issues)
 [![Maintenance](https://img.shields.io/maintenance/yes/2021?label=Did%20Michael%20still%20maintains%20this%3F&style=flat-square)](https://rtapp.tk/bshq-abandon-the-children)
