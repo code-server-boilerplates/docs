@@ -26,6 +26,8 @@ jobs:
           [ ! -d .yarn/versions ] && yarn set version berry || [ -d .yarn/versions ] && [ $UPGRADE_LOCAL_YARNPKG_BINARY != "" ] && yarn set version latest
       - name: Run install CI
         run: yarn install
+      - name: Stage changes and check status
+        run: git add . && git status
       - name: Commit changes
         run: |
           git commit -m "Updated Yarn lockfiles and stuff" --signoff
