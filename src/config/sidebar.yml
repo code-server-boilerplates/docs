@@ -1,0 +1,7 @@
+- label: 'Home'
+  link: '/'
+
+- label: Community
+  items:
+    - label: code-server Community at Slack
+      link: 'https://community.coder.com'
