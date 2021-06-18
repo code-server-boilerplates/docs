@@ -5,7 +5,7 @@ on:
 
 jobs:
   lockfile-generator:
-    runs-on: ubutnu-latest
+    runs-on: ubuntu-latest
     env:
       RELEASES_GPG_PASSPHARSE: ${{ secrets.RELEASES_GPG_PASSPHARSE }}
       RELEASES_GPG_KEY: ${{ secrets.RELEASES_GPG_KEY }}
