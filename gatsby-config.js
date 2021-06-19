@@ -1,21 +1,37 @@
+// remind me to change it to main as branch renames may happen
+// in case you're not on Verceljust prefix it when running npm scripts with VERCEL_GIT_COMMIT_REF=beta npm run <script-name>
+const gitBranch = process.env.VERCEL_GIT_COMMIT_REF || "master";
+
 module.exports = {
+  flags: {
+    // Only enable experimental flags at your own risk.
+    DEV_SSR: true,
+    PRESERVE_WEBPACK_CACHE: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    FAST_DEV: true,
+  },
+  siteMetadata: {
+    siteTitle: `Code Server Boilerplates Docs | The Pins Team`,
+    defaultTitle: `Code Server Boilerplates Docs | The Pins Team`,
+    siteTitleShort: `Code Server Boilerplates Docs`,
+    siteDescription: `Official docs for maintaining deploy-code-server-like templates for maintainers and usage for usual users.`,
+    siteUrl: `https://csb-docs.community-lores.gq`, // will be csb-docs.lores.community soon
+    siteAuthor: `The Pins Team and Docs contributors`,
+    //siteImage: `/banner.png`,
+    siteLanguage: `en`,
+    themeColor: `#8257E6`,
+    basePath: `/`,
+  },
   plugins: [
     {
-      resolve: "smooth-doc",
+      resolve: `@rocketseat/gatsby-theme-docs`,
       options: {
-        name: "Code Server Boilerplates Docs",
-        description: "Documentation website for the Code Server Boilerplates project.",
-        siteUrl: "https://csb-docs.community-lores.gq",
-
-        // for the GH icon at the top
-        githubRepositoryURL: "https://github.com/code-server-boilerplates/starter-pack",
-        // for the edit link in docs
-        githubDocRepositoryURL: "https://github.com/code-server-boilerplates/docs",
-        baseDirectory: __dirname,
-
-        // navigation stuff
-        navItems: [{ title: "Get started", url: "/choose-your-path/"}],
-        sections: [ "Starter Pack", "User's Manual", "For Maintainers", "Reference", "Documentation Contributors Zone" ],
+        basePath: `/`,
+        configPath: `src/config`,
+        docsPath: `src/docs`,
+        repositoryUrl: `https://github.com/code-server-boilerplates/docs`,
+        baseDir: `/`,
+        branch: gitBranch,
       },
     },
   ],

@@ -1,6 +1,6 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,yarn,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,yarn,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode
 
 ### Node ###
 # Logs
@@ -104,7 +104,7 @@ dist/
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
-#public
+public
 
 # vuepress build output
 .vuepress/dist
@@ -141,20 +141,4 @@ temp/
 .history
 .ionide
 
-### yarn ###
-# https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored
-
-.yarn/*
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
-
-# if you are NOT using Zero-installs, then:
-# comment the following lines
-!.yarn/cache
-
-# and uncomment the following lines
-# .pnp.*
-
-# End of https://www.toptal.com/developers/gitignore/api/node,yarn,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
