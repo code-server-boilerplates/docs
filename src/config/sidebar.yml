@@ -1,0 +1,19 @@
+- label: 'Home'
+  link: '/'
+- label: Contact maintainers
+  link: '/contact'
+
+- label: Maintainers' Handbook
+  items:
+    - label: Handbook Home
+      link: /maintainer-docs/
+
+- label: User Guide
+  items:
+    - label: User Guide Home
+      link: /user-guide/
+
+- label: Community
+  items:
+    - label: code-server Community at Slack
+      link: 'https://community.coder.com'
