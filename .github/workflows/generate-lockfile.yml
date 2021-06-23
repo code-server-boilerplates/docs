@@ -46,7 +46,7 @@ jobs:
         with:
           token: ${{ secrets.GH_SERVICE_ACCOUNT_API_KEY }}
           author: Recap Time Bot <releases@madebythepins.tk>
-          commiter: Recap Time Bot <releases@madebythepins.tk>
+          committer: Recap Time Bot <releases@madebythepins.tk>
           signoff: true
           commit-message: Update npm dependencies and lockfile
           branch: update-dependencies-npmjs
@@ -54,11 +54,9 @@ jobs:
             packages/nodejs-npm
             dependencies
           reviewers: ${{ github.actor }}
-          assignees:
+          assignees: ${{ github.actor }}
           title: Update npmjs lockfiles and dependencies
-          description: |
-            Hey, ${{ github.actor }}.
-
+          body: |
             Your PR has been successfully generated to update dependencies and lockfile. Please wait while Vercel is doing an build for our website to ensure there will be no breaking changes to be merged to production.
 
             When the build status goes green, approve and add `Ready to Ship` label to automagically merge.
