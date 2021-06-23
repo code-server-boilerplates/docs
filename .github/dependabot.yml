@@ -8,6 +8,10 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     reviewers:
       - AndreiJirohHaliliDev2006
+    labels:
+      - packages/nodejs-npm
+      - dependencies
+      - Updated by Dependabot

@@ -1,4 +1,4 @@
-name: Generate Yarn lockfile
+name: Update dependencies and generate new lockfile
 
 on:
   workflow_dispatch:
@@ -21,12 +21,8 @@ jobs:
         run: curl -fsSL https://github.com/code-server-boilerplates/charts/raw/main/scripts/setup-ci | bash
       - name: Update npmjs
         run: npm i -g npm@latest
-      - name: Setup Yarn Berry
-        shell: bash
-        run: |
-          git switch -c update-lockfiles-$GITHUB_RUN_ID origin/master
       - name: Run install CI
-        run: npm ci
+        run: npm install && npm ci || true
       - name: Attempt to upgrade dependencies
         run: |
           echo "::addgroup::List outdated packages"
@@ -44,7 +40,33 @@ jobs:
           git status -s
           echo "::endgroup::"
           sleep 30
-      - name: Commit changes
+      - name: Generate pull request
+        uses: peter-evans/create-pull-request@v3
+        id: cpr
+        with:
+          token: ${{ secrets.GH_SERVICE_ACCOUNT_API_KEY }}
+          author: Recap Time Bot <releases@madebythepins.tk>
+          commiter: Recap Time Bot <releases@madebythepins.tk>
+          signoff: true
+          commit-message: Update npm dependencies and lockfile
+          branch: update-dependencies-npmjs
+          labels: |
+            packages/nodejs-npm
+            dependencies
+          reviewers: ${{ github.actor }}
+          assignees:
+          title: Update npmjs lockfiles and dependencies
+          description: |
+            Hey, ${{ github.actor }}.
+
+            Your PR has been successfully generated to update dependencies and lockfile. Please wait while Vercel is doing an build for our website to ensure there will be no breaking changes to be merged to production.
+
+            When the build status goes green, approve and add `Ready to Ship` label to automagically merge.
+            Before merging, make sure you read the changelog of these updated packages before proceeding.
+
+            ---
+
+            _This PR is generated using [this GitHub action](https://github.com/peter-evans/create-pull-request), btw._
+      - name: Extract PR link
         run: |
-          git commit -m "Updated npmjs lockfiles and dependencies" --signoff
-          git push origin update-lockfiles-$GITHUB_RUN_ID
+          echo "An PR has been generated to update npm dependencies. Go to ${{ steps.cpr.outputs.pull-request-url }} to complete the merge request workflow."

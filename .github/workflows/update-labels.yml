@@ -24,7 +24,6 @@ jobs:
           # These labels included in your default labels settings are excluded
           # you need to manually add them to .github/labels.yml and remove the entries here
           exclude: |
-            documentation
             help wanted
             wontfix
             bug
