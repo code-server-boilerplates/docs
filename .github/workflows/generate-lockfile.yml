@@ -9,7 +9,6 @@ jobs:
     env:
       RELEASES_GPG_PASSPHARSE: ${{ secrets.RELEASES_GPG_PASSPHARSE }}
       RELEASES_GPG_KEY: ${{ secrets.RELEASES_GPG_KEY }}
-      UPGRADE_LOCAL_YARNPKG_BINARY: true
     steps:
       - uses: actions/checkout@v2
         with:
@@ -20,21 +19,32 @@ jobs:
           node-version: '14'
       - name: Setup Git
         run: curl -fsSL https://github.com/code-server-boilerplates/charts/raw/main/scripts/setup-ci | bash
-      - name: Install Yarn
-        run: npm i -g yarn
+      - name: Update npmjs
+        run: npm i -g npm@latest
       - name: Setup Yarn Berry
         shell: bash
         run: |
-          git checkout update-lockfiles
-          [ ! -d .yarn/versions ] && yarn set version berry || [ -d .yarn/versions ] && [[ $UPGRADE_LOCAL_YARNPKG_BINARY != "" ]] && yarn set version latest
+          git switch -c update-lockfiles-$GITHUB_RUN_ID origin/master
       - name: Run install CI
-        run: yarn install
+        run: npm ci
       - name: Attempt to upgrade dependencies
         run: |
-          yarn up gatsby react react-dom smooth-doc || true
+          echo "::addgroup::List outdated packages"
+          npm outdated
+          echo "::endgroup::"
+
+          echo "::addgroup::Upgrade dependencies"
+          npm update
+          echo "::endgroup::"
       - name: Stage changes and check status
-        run: git add . && git status
+        run: |
+          git add .
+
+          echo "::addgroup::Check pending changes"
+          git status -s
+          echo "::endgroup::"
+          sleep 30
       - name: Commit changes
         run: |
-          git commit -m "Updated Yarn lockfiles and stuff" --signoff
-          git push origin update-lockfiles
+          git commit -m "Updated npmjs lockfiles and dependencies" --signoff
+          git push origin update-lockfiles-$GITHUB_RUN_ID
