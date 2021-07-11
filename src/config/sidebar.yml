@@ -7,11 +7,20 @@
   items:
     - label: Handbook Home
       link: /maintainer-docs/
+    - label: Post-Repo Creation Checklist
+      link: /maintainer-docs/post-repo-creation-checklist/
+
+- label: Examples for Template Maintainers
+  items:
+    - label: Mergify
+      link: /maintainer-docs/example-mergify-config/
 
 - label: User Guide
   items:
     - label: User Guide Home
       link: /user-guide/
+    - label: Starter Pack Docs
+      link: /user-guide/starter-pack/
 
 - label: Community
   items:
