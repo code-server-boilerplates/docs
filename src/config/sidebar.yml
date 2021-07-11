@@ -1,5 +1,5 @@
-- label: 'Home'
-  link: '/'
+#- label: 'Home'
+#  link: '/'
 - label: Contact maintainers
   link: '/contact'
 
