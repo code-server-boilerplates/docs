@@ -1,0 +1,34 @@
+---
+title: Example Mergify configurations
+---
+
+## Automagically merge Dependabot PRs
+
+```yml
+# Conflicts with the following PR rules, please comment them out first:
+# - Automate base image upgrade review process from Dependabot
+# - Ship Dependabot PRs when approved by humans
+# Remember that you MUST ALWAYS REVIEW THE CHANGELOGS
+# before your release it as https://github.io/cdr/code-server/releases.
+  - name: Automagically ship Dependabot PRs
+    conditions:
+      - author~=^dependabot(|-preview)\[bot\]$
+      - label=Updated by Dependabot
+      - label=packages/docker-base-images
+      - base=main
+    actions:
+      review:
+        type: APPROVE
+        message: |
+           Approving and merging @dependabot's pull request, to be shipped in the following image tags: `develop`
+
+           Maintainers have been advised to to create an new release regarding this base image upgrade as soon as possible for patches, including security fixes, and within the next 48-72 hours for minor releases. For major releases, expect breaking changes and notify your users accordingly before creating an new GitHub release.
+
+           To learn more about this guideline, please read your `docs/release-management/automated-base-image-upgrades.md` or through <https://cdrs-docs.rtapp.tk/base-images-dependabot> in case your copy of maintainers' docs go outdated.
+
+           --
+
+           This PR has been merged automagically by Mergify. Read `docs/post-repo-creation/mergify.md` or visit <https://cdrs-docs.rtapp.tk/mergify> to learn more.
+      merge:
+        action: merge
+```

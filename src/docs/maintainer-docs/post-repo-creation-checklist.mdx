@@ -1,3 +1,19 @@
 ---
 title: Post Repository Creation Checklist
 ---
+
+After you either generated a new repo from an GitHub template or duplicated it, you need to configure encrypted secrets for GitHub Actions, update contact links, and install Mergify, among other things.
+
+## TL;DR
+
+Here's the gist of what you do as a new template maintainer:
+
+* [Install Mergify on your account/org](https://github.com/apps/mergify/installations/new). We're working on an GitHub Action workflow if you don't prefer to use Mergify instead.
+* Configure encrypted secrets for Docker Hub, RHQCR (the public instance on <https://quay.io>) and GHCR
+* Adjust GitHub repository settings, and optionally update sponsor links.
+
+## Step 1: Installing Mergify
+
+**Transferring to or has repo creation permissions in `code-server-boilerplates` org?** Skip this step, since we installed that GitHub app across the org.
+
+Otherwise, [install the app](https://github.com/apps/mergify/installations/new) in an account/org where your template is. If you don't want to install the app across all repos, select **Only select repositories** and manually add that repo before hitting `Install`.
