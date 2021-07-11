@@ -1,0 +1,25 @@
+
+checkoutLocation: csb-docs
+# The workspace location when the workspace is being open
+workspaceLocation: csb-docs
+
+image: gitpod/workspace-full
+
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - init: npm i
+    command: npm run develop
+
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  # development site preview
+  - port: 8000
+    onOpen: notify
+  # production build preview
+  - port: 9000
+    onOpen: notify
+
+
+vscode:
+  extensions:
+    - vscode-icons-team.vscode-icons

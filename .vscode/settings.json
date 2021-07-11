@@ -1,0 +1,11 @@
+{
+    "files.autoSaveDelay": 10000,
+    "workbench.iconTheme": "vscode-icons",
+    "[git-commit]": {
+        "editor.rulers": [
+            72
+        ],
+        "workbench.editor.restoreViewState": false
+    },
+    "git.alwaysSignOff": true
+}
