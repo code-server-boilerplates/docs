@@ -10,7 +10,7 @@ updates:
     schedule:
       interval: "weekly"
     reviewers:
-      - AndreiJirohHaliliDev2006
+      - ajhalili2006
     labels:
       - packages/nodejs-npm
       - dependencies
