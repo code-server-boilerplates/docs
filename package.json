@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@rocketseat/gatsby-theme-docs": "^2.3.1",
-    "gatsby": "^3.7.2",
+    "gatsby": "^3.14.4",
     "gatsby-plugin-canonical-urls": "^3.7.1",
     "gatsby-plugin-google-analytics": "^3.7.1",
     "gatsby-plugin-offline": "^4.7.1",
